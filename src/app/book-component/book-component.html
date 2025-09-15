@@ -5,8 +5,8 @@
   <form [formGroup]="FormgroupBook" (ngSubmit)="save()">
 
     <div class="mb-3">
-      <label for="inputId" class="form-label">ID</label>
-      <input formControlName="id" type="text" class="form-control" id="inputId">
+      <label for="inputId" class="form-label">id</label>
+      <input formControlName="id" type="text" class="form-control" id="inputid">
     </div>
 
     <div class="mb-3">
@@ -42,7 +42,7 @@
   <table class="table mt-3">
     <thead class="table-light">
       <tr>
-        <th scope="col">#</th>
+        <th scope="col">id</th>
         <th scope="col">Título</th>
         <th scope="col">Autor</th>
         <th scope="col">Gênero</th>
@@ -61,20 +61,5 @@
       </tr>
     </tbody>
   </table>
-
-  <div class="row">
-    <div class="col-md-4 mb-3" *ngFor="let p of books">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">{{ p.title }}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">ID: {{ p.id }}</h6>
-          <p class="card-text">Autor: {{ p.author }}</p>
-          <p class="card-text">Gênero: {{ p.genre }}</p>
-          <p class="card-text">Ano: {{ p.year }}</p>
-          <p class="card-text">Preço: {{ p.price | currency:'BRL':'symbol':'1.2-2' }}</p>
-        </div>
-      </div>
-    </div>
-  </div>
 
 </div>
