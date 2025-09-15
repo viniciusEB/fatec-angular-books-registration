@@ -1,0 +1,10 @@
+{
+  "books": [
+      { "id": 1, "title": "livro 1","author": "autor 1","genre": "Genero 1" ,"year": "ano 1" , "price": 10.99},
+      { "id": 2, "title": "livro 2","author": "autor 2","genre": "Genero 2" ,"year": "ano 2" , "price": 20.99},
+      { "id": 3, "title": "livro 3","author": "autor 3","genre": "Genero 3" ,"year": "ano 3" , "price": 30.99}
+     
+
+  ]
+}
+

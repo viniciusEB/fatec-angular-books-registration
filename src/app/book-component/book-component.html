@@ -1,0 +1,80 @@
+<div class="container mt-4">
+
+  <h2 class="display-4 text-center mb-4">Cadastro de Livro</h2>
+
+  <form [formGroup]="FormgroupBook" (ngSubmit)="save()">
+
+    <div class="mb-3">
+      <label for="inputId" class="form-label">ID</label>
+      <input formControlName="id" type="text" class="form-control" id="inputId">
+    </div>
+
+    <div class="mb-3">
+      <label for="inputTitle" class="form-label">Título</label>
+      <input formControlName="title" type="text" class="form-control" id="inputTitle">
+    </div>
+
+    <div class="mb-3">
+      <label for="inputAuthor" class="form-label">Autor</label>
+      <input formControlName="author" type="text" class="form-control" id="inputAuthor">
+    </div>
+
+    <div class="mb-3">
+      <label for="inputGenre" class="form-label">Gênero</label>
+      <input formControlName="genre" type="text" class="form-control" id="inputGenre">
+    </div>
+
+    <div class="mb-3">
+      <label for="inputYear" class="form-label">Ano</label>
+      <input formControlName="year" type="number" class="form-control" id="inputYear">
+    </div>
+
+    <div class="mb-3">
+      <label for="inputPrice" class="form-label">Preço</label>
+      <input formControlName="price" type="number" class="form-control" id="inputPrice">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Salvar</button>
+  </form>
+
+  <p class="mt-4">Total de livros: {{ books.length }}</p>
+
+  <table class="table mt-3">
+    <thead class="table-light">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Título</th>
+        <th scope="col">Autor</th>
+        <th scope="col">Gênero</th>
+        <th scope="col">Ano</th>
+        <th scope="col">Preço</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of books">
+        <td>{{ p.id }}</td>
+        <td>{{ p.title }}</td>
+        <td>{{ p.author }}</td>
+        <td>{{ p.genre }}</td>
+        <td>{{ p.year }}</td>
+        <td>{{ p.price | currency:'BRL':'symbol':'1.2-2' }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="row">
+    <div class="col-md-4 mb-3" *ngFor="let p of books">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{ p.title }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">ID: {{ p.id }}</h6>
+          <p class="card-text">Autor: {{ p.author }}</p>
+          <p class="card-text">Gênero: {{ p.genre }}</p>
+          <p class="card-text">Ano: {{ p.year }}</p>
+          <p class="card-text">Preço: {{ p.price | currency:'BRL':'symbol':'1.2-2' }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
