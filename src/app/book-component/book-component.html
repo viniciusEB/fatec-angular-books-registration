@@ -1,65 +1,83 @@
-<div class="container mt-4">
+<div class="container mt-5">
 
-  <h2 class="display-4 text-center mb-4">Cadastro de Livro</h2>
+  <div class="text-center mb-5">
+    <h2 class="display-5 fw-bold text-success">📚 Cadastro de Livro</h2>
+    <p class="text-muted">Adicione e gerencie sua coleção literária</p>
+  </div>
 
-  <form [formGroup]="FormgroupBook" (ngSubmit)="save()">
+  <div class="card shadow-lg border-0 mb-5">
+    <div class="card-body bg-light rounded">
+      <form [formGroup]="FormgroupBook" (ngSubmit)="save()">
 
-    <div class="mb-3">
-      <label for="inputId" class="form-label">id</label>
-      <input formControlName="id" type="text" class="form-control" id="inputid">
+        <div class="row">
+          <div class="col-md-2 mb-3">
+            <label for="inputId" class="form-label fw-semibold">ID</label>
+            <input formControlName="id" type="text" class="form-control" id="inputId" placeholder="Ex: 01">
+          </div>
+
+          <div class="col-md-5 mb-3">
+            <label for="inputTitle" class="form-label fw-semibold">Título</label>
+            <input formControlName="title" type="text" class="form-control" id="inputTitle"
+              placeholder="Ex: Dom Casmurro">
+          </div>
+
+          <div class="col-md-5 mb-3">
+            <label for="inputAuthor" class="form-label fw-semibold">Autor</label>
+            <input formControlName="author" type="text" class="form-control" id="inputAuthor"
+              placeholder="Ex: Machado de Assis">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <label for="inputGenre" class="form-label fw-semibold">Gênero</label>
+            <input formControlName="genre" type="text" class="form-control" id="inputGenre" placeholder="Ex: Romance">
+          </div>
+
+          <div class="col-md-4 mb-3">
+            <label for="inputYear" class="form-label fw-semibold">Ano</label>
+            <input formControlName="year" type="number" class="form-control" id="inputYear" placeholder="Ex: 1899">
+          </div>
+
+          <div class="col-md-4 mb-3">
+            <label for="inputPrice" class="form-label fw-semibold">Preço</label>
+            <input formControlName="price" type="number" class="form-control" id="inputPrice" placeholder="Ex: 49.90">
+          </div>
+        </div>
+
+        <div class="d-grid">
+          <button type="submit" class="btn btn-success btn-lg shadow-sm">
+            Salvar
+          </button>
+        </div>
+      </form>
     </div>
+  </div>
 
-    <div class="mb-3">
-      <label for="inputTitle" class="form-label">Título</label>
-      <input formControlName="title" type="text" class="form-control" id="inputTitle">
-    </div>
+  <p class="text-secondary fw-semibold">📖 Total de livros: {{ books.length }}</p>
 
-    <div class="mb-3">
-      <label for="inputAuthor" class="form-label">Autor</label>
-      <input formControlName="author" type="text" class="form-control" id="inputAuthor">
-    </div>
-
-    <div class="mb-3">
-      <label for="inputGenre" class="form-label">Gênero</label>
-      <input formControlName="genre" type="text" class="form-control" id="inputGenre">
-    </div>
-
-    <div class="mb-3">
-      <label for="inputYear" class="form-label">Ano</label>
-      <input formControlName="year" type="number" class="form-control" id="inputYear">
-    </div>
-
-    <div class="mb-3">
-      <label for="inputPrice" class="form-label">Preço</label>
-      <input formControlName="price" type="number" class="form-control" id="inputPrice">
-    </div>
-
-    <button type="submit" class="btn btn-primary">Salvar</button>
-  </form>
-
-  <p class="mt-4">Total de livros: {{ books.length }}</p>
-
-  <table class="table mt-3">
-    <thead class="table-light">
-      <tr>
-        <th scope="col">id</th>
-        <th scope="col">Título</th>
-        <th scope="col">Autor</th>
-        <th scope="col">Gênero</th>
-        <th scope="col">Ano</th>
-        <th scope="col">Preço</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let p of books">
-        <td>{{ p.id }}</td>
-        <td>{{ p.title }}</td>
-        <td>{{ p.author }}</td>
-        <td>{{ p.genre }}</td>
-        <td>{{ p.year }}</td>
-        <td>{{ p.price | currency:'BRL':'symbol':'1.2-2' }}</td>
-      </tr>
-    </tbody>
-  </table>
-
+  <div class="table-responsive shadow-lg">
+    <table class="table table-hover align-middle">
+      <thead class="table-success text-dark">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Título</th>
+          <th scope="col">Autor</th>
+          <th scope="col">Gênero</th>
+          <th scope="col">Ano</th>
+          <th scope="col">Preço</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of books">
+          <td>{{ p.id }}</td>
+          <td class="fw-semibold">{{ p.title }}</td>
+          <td>{{ p.author }}</td>
+          <td><span class="badge bg-secondary">{{ p.genre }}</span></td>
+          <td>{{ p.year }}</td>
+          <td class="text-success fw-bold">{{ p.price | currency:'BRL':'symbol':'1.2-2' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
