@@ -29,21 +29,18 @@ export class BookComponent implements OnInit {
     this.loadBooks();
   }
 
-  // Carregar todos os livros
   loadBooks() {
     this.service.getAllProducts().subscribe({
       next: json => this.books = json
     });
   }
 
-  // Salvar livro chamando o service (POST)
   save() {
     const book: Book = this.formGroupBook.value;
-
     this.service.save(book).subscribe({
       next: json => {
-        this.books.push(json);     // adiciona o que veio da API
-        this.formGroupBook.reset(); // limpa o form
+        this.books.push(json);
+        this.formGroupBook.reset();
       }
     });
   }
