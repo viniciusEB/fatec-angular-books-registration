@@ -1,8 +1,6 @@
-import { Component , OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Book } from '../books';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Title } from '@angular/platform-browser';
-import { auto } from '@popperjs/core';
 import { BookService } from '../book-service';
 
 @Component({
@@ -13,18 +11,11 @@ import { BookService } from '../book-service';
 })
 export class BookComponent implements OnInit {
 
-  ngOnInit(): void {
-    this.service.getAllProducts().subscribe({
-      next: json => this.books = json
-  });
-  }
-
   books: Book[] = [];
-  FormgroupBook: FormGroup;
+  formGroupBook: FormGroup;
 
   constructor(private formBuilder: FormBuilder, private service: BookService) {
-
-    this.FormgroupBook = this.formBuilder.group({
+    this.formGroupBook = this.formBuilder.group({
       id: [''],
       title: [''],
       author: [''],
@@ -34,10 +25,26 @@ export class BookComponent implements OnInit {
     });
   }
 
-  save() {
-    const book: Book = this.FormgroupBook.value;
-    this.books.push(book);
-    this.FormgroupBook.reset();
+  ngOnInit(): void {
+    this.loadBooks();
   }
 
+  // Carregar todos os livros
+  loadBooks() {
+    this.service.getAllProducts().subscribe({
+      next: json => this.books = json
+    });
+  }
+
+  // Salvar livro chamando o service (POST)
+  save() {
+    const book: Book = this.formGroupBook.value;
+
+    this.service.save(book).subscribe({
+      next: json => {
+        this.books.push(json);     // adiciona o que veio da API
+        this.formGroupBook.reset(); // limpa o form
+      }
+    });
+  }
 }

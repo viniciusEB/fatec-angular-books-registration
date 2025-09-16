@@ -7,7 +7,7 @@
 
   <div class="card shadow-lg border-0 mb-5">
     <div class="card-body bg-light rounded">
-      <form [formGroup]="FormgroupBook" (ngSubmit)="save()">
+      <form [formGroup]="formGroupBook" (ngSubmit)="save()">
 
         <div class="row">
           <div class="col-md-2 mb-3">
@@ -35,7 +35,7 @@
           </div>
 
           <div class="col-md-4 mb-3">
-            <label for="inputYear" class="form-label fw-semibold">Ano</label>
+            <label for="inputYear" class="form-label fw-semibold">Ano publicação</label>
             <input formControlName="year" type="number" class="form-control" id="inputYear" placeholder="Ex: 1899">
           </div>
 

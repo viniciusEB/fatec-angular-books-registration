@@ -1,7 +1,28 @@
 {
   "books": [
-      { "id": 1, "title": "A Metamorfose","author": "Franz Kafka","genre": "Ficção" ,"year": "1915" , "price": 90.99}
-
+    {
+      "id": 1,
+      "title": "A Metamorfose",
+      "author": "Franz Kafka",
+      "genre": "Ficção",
+      "year": "1915",
+      "price": 90.99
+    },
+    {
+      "id": "02",
+      "title": "pequeno principe",
+      "author": "jose",
+      "genre": "drama",
+      "year": 1922,
+      "price": 1222
+    },
+    {
+      "id": "03",
+      "title": "A Divina Comédia",
+      "author": "Dante Alighieri",
+      "genre": "poesia narrativa",
+      "year": 1321,
+      "price": 9370
+    }
   ]
 }
-
