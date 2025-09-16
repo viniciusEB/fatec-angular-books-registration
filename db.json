@@ -9,7 +9,7 @@
       "price": 90.99
     },
     {
-      "id": "02",
+      "id": 2,
       "title": "pequeno principe",
       "author": "jose",
       "genre": "drama",
@@ -17,7 +17,7 @@
       "price": 1222
     },
     {
-      "id": "03",
+      "id": 3,
       "title": "A Divina Comédia",
       "author": "Dante Alighieri",
       "genre": "poesia narrativa",
